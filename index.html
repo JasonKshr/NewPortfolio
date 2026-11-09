@@ -5,21 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jason's Portfolio</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <nav>
-        <a href="#top">top</a>
+        <a href="#top">Top</a>
 
         <div class="nav-right">
-
-            <a href="#aboutme">about me</a>
+            <a href="#aboutme">About Me</a>
 
             <details class="project-menu" id="experience-menu">
                 <summary>
-                    experience <span class="dropdown-arrow">▾</span>
+                    Experience <span class="dropdown-arrow">▾</span>
                 </summary>
 
                 <div class="project-dropdown">
@@ -30,7 +28,7 @@
 
             <details class="project-menu" id="project-menu">
                 <summary>
-                    projects <span class="dropdown-arrow">▾</span>
+                    Projects <span class="dropdown-arrow">▾</span>
                 </summary>
 
                 <div class="project-dropdown">
@@ -40,16 +38,18 @@
                 </div>
             </details>
 
-            <a href="#contact">contact</a>
+            <a href="#contact">Contact</a>
 
-            <a href="resumeJason.pdf" target="_blank" rel="noopener noreferrer">
-                resume
+            <a href="resumeJason.pdf"
+               target="_blank"
+               rel="noopener noreferrer">
+                Resume
             </a>
-            
         </div>
     </nav>
 
     <main>
+
         <!-- Home -->
         <section id="top">
             <h1 id="title"></h1>
@@ -78,21 +78,22 @@
 
         <!-- About Me -->
         <section id="aboutme">
-            <h2>about me</h2>
+            <h2>About Me</h2>
 
             <p>
-                i'm a computer science senior at the university of
-                virginia. i've explored a lot of classes within the
-                subject, and my favorite topics are machine learning
-                and software engineering. i've applied some of that
-                knowledge doing research at gmu regarding deep learning
-                and its application to images.
+                I'm a Computer Science senior at the University of
+                Virginia. I've explored a variety of subjects within
+                computer science, and my favorite areas are Machine
+                Learning and Software Engineering. I've applied this
+                knowledge through deep learning research at George Mason
+                University, focusing on image classification and
+                segmentation.
             </p>
 
             <p>
-                outside of school and professional life, you can find
-                me climbing plastic rocks — i'm a v6 climber if you
-                must know. other interests i have are photography,
+                Outside of school and professional life, you can find
+                me climbing plastic rocks — I'm a V6 climber, if you
+                must know. My other interests include photography,
                 hiking, cooking, and listening to obscure music.
             </p>
 
@@ -125,16 +126,16 @@
 
         <!-- Experience -->
         <section id="experience">
-            <h2>experience</h2>
+            <h2>Experience</h2>
 
             <p class="experience-intro">
-                a little bit of what i've worked on outside the classroom
+                A little bit of what I've worked on outside the classroom.
             </p>
 
             <!-- UVA Research -->
             <article class="experience-card" id="uva-research">
                 <div class="experience-label">
-                    RESEARCH | LARGE LANGUAGE MODELS
+                    RESEARCH / LARGE LANGUAGE MODELS
                     <span class="status-tag">IN PROGRESS</span>
                 </div>
 
@@ -183,7 +184,7 @@
             <!-- GMU Research -->
             <article class="experience-card" id="gmu-research">
                 <div class="experience-label">
-                    RESEARCH | DEEP LEARNING
+                    RESEARCH / DEEP LEARNING
                 </div>
 
                 <div class="experience-heading">
@@ -234,10 +235,10 @@
 
         <!-- Projects -->
         <section id="projects">
-            <h2>projects</h2>
+            <h2>Projects</h2>
 
             <p class="projects-intro">
-                some things i've been building
+                Some things I've been building.
             </p>
 
             <div class="projects-grid">
@@ -381,10 +382,10 @@
 
         <!-- Contact -->
         <section id="contact">
-            <h2>contact me</h2>
+            <h2>Contact Me</h2>
 
             <div class="contact-item">
-                <strong>email:</strong>
+                <strong>Email:</strong>
 
                 <a href="mailto:jasonkshrrr@gmail.com">
                     jasonkshrrr@gmail.com
@@ -392,7 +393,7 @@
             </div>
 
             <div class="contact-item">
-                <strong>phone:</strong>
+                <strong>Phone:</strong>
                 <span>703-814-3321</span>
             </div>
 
@@ -402,7 +403,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    linkedin
+                    LinkedIn
                 </a>
             </div>
 
@@ -412,7 +413,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    github
+                    GitHub
                 </a>
             </div>
 
@@ -422,7 +423,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    insta
+                    Instagram
                 </a>
             </div>
         </section>
@@ -431,7 +432,7 @@
     <script>
         const dropdownMenus = document.querySelectorAll(".project-menu");
 
-        // Close dropdowns after selecting an item
+        // Close dropdowns after selecting a link
         dropdownMenus.forEach(menu => {
             menu.querySelectorAll("a").forEach(link => {
                 link.addEventListener("click", () => {
@@ -466,11 +467,11 @@
             type();
         }
 
-        typeText("title", "hi, i'm jason kishore", 50);
+        typeText("title", "Hi, I'm Jason Kishore", 50);
 
         typeText(
             "cool_guy",
-            "i think i'm a pretty cool guy, here's some stuff about me and projects i've worked on",
+            "I think I'm a pretty cool guy, here's some stuff about me and projects I've worked on",
             25
         );
     </script>
