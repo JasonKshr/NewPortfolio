@@ -14,8 +14,19 @@
         <a href="#top">top</a>
 
         <div class="nav-right">
+
             <a href="#aboutme">about me</a>
-            <a href="#experience">experience</a>
+
+            <details class="project-menu" id="experience-menu">
+                <summary>
+                    experience <span class="dropdown-arrow">▾</span>
+                </summary>
+
+                <div class="project-dropdown">
+                    <a href="#uva-research">UVA Research</a>
+                    <a href="#gmu-research">GMU Research</a>
+                </div>
+            </details>
 
             <details class="project-menu" id="project-menu">
                 <summary>
@@ -30,6 +41,11 @@
             </details>
 
             <a href="#contact">contact</a>
+
+            <a href="resumeJason.pdf" target="_blank" rel="noopener noreferrer">
+                resume
+            </a>
+            
         </div>
     </nav>
 
@@ -116,9 +132,9 @@
             </p>
 
             <!-- UVA Research -->
-            <article class="experience-card">
+            <article class="experience-card" id="uva-research">
                 <div class="experience-label">
-                    RESEARCH / LARGE LANGUAGE MODELS
+                    RESEARCH | LARGE LANGUAGE MODELS
                     <span class="status-tag">IN PROGRESS</span>
                 </div>
 
@@ -132,7 +148,7 @@
                     </div>
 
                     <span class="experience-date">
-                        Nov 2026 – Present
+                        Oct 2026 – Present
                     </span>
                 </div>
 
@@ -157,18 +173,17 @@
                 </p>
 
                 <div class="experience-tech">
-                    <span>Python (planned)</span>
+                    <span>Python</span>
                     <span>LLM Evaluation</span>
                     <span>Natural Language Processing</span>
-                    <span>Research Methods</span>
                     <span>PERSUADE Dataset</span>
                 </div>
             </article>
 
             <!-- GMU Research -->
-            <article class="experience-card">
+            <article class="experience-card" id="gmu-research">
                 <div class="experience-label">
-                    RESEARCH / MACHINE LEARNING
+                    RESEARCH | DEEP LEARNING
                 </div>
 
                 <div class="experience-heading">
@@ -414,20 +429,24 @@
     </main>
 
     <script>
-        const projectMenu = document.getElementById("project-menu");
+        const dropdownMenus = document.querySelectorAll(".project-menu");
 
-        // Close menu after selecting a project
-        projectMenu.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                projectMenu.open = false;
+        // Close dropdowns after selecting an item
+        dropdownMenus.forEach(menu => {
+            menu.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => {
+                    menu.open = false;
+                });
             });
         });
 
-        // Close menu when clicking outside
+        // Close dropdowns when clicking outside
         document.addEventListener("click", event => {
-            if (!projectMenu.contains(event.target)) {
-                projectMenu.open = false;
-            }
+            dropdownMenus.forEach(menu => {
+                if (!menu.contains(event.target)) {
+                    menu.open = false;
+                }
+            });
         });
 
         // Typing animation
