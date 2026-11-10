@@ -466,19 +466,21 @@ section p {
     image-rendering: pixelated;
 }
 
-/* Embedded PICO-8 game */
+/* RockBlaster player */
 
 .pico8-demo {
-    width: min(100%, 560px);
+    width: min(100%, 580px);
+    max-width: 580px;
     margin: 28px auto 12px;
-    padding: 12px;
+    padding: 8px;
+    background: #222;
 }
 
 .pico8-game {
     display: block;
     width: 100%;
-    aspect-ratio: 1 / 1;
     height: auto;
+    aspect-ratio: 1 / 1;
     border: 0;
     background: #222;
 }
@@ -762,7 +764,7 @@ nav .project-menu summary {
     }
 
     .pico8-demo {
-        padding: 5px;
+        padding: 4px;
     }
 
     .status-tag {
@@ -784,38 +786,5 @@ nav .project-menu summary {
     .project-links a,
     .project-menu summary {
         transition: none;
-    }
-}
-
-/* RockBlaster game container */
-.pico8-demo {
-    width: 100%;
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 12px;
-    background: #111;
-    border: 3px solid black;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-/* PICO-8 embedded game */
-.pico8-game {
-    display: block;
-    width: 100%;
-    height: 560px;
-    border: none;
-    background: #111;
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-    .pico8-demo {
-        max-width: 100%;
-        padding: 5px;
-    }
-
-    .pico8-game {
-        height: 350px;
     }
 }
