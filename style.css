@@ -786,3 +786,36 @@ nav .project-menu summary {
         transition: none;
     }
 }
+
+/* RockBlaster game container */
+.pico8-demo {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 12px;
+    background: #111;
+    border: 3px solid black;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* PICO-8 embedded game */
+.pico8-game {
+    display: block;
+    width: 100%;
+    height: 560px;
+    border: none;
+    background: #111;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .pico8-demo {
+        max-width: 100%;
+        padding: 5px;
+    }
+
+    .pico8-game {
+        height: 350px;
+    }
+}
