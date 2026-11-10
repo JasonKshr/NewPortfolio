@@ -19,7 +19,6 @@
                 <summary>
                     Experience <span class="dropdown-arrow">▾</span>
                 </summary>
-
                 <div class="project-dropdown">
                     <a href="#uva-research">UVA Research</a>
                     <a href="#gmu-research">GMU Research</a>
@@ -30,7 +29,6 @@
                 <summary>
                     Projects <span class="dropdown-arrow">▾</span>
                 </summary>
-
                 <div class="project-dropdown">
                     <a href="#fraudmail">FraudMail</a>
                     <a href="#rockblaster">RockBlaster</a>
@@ -39,7 +37,6 @@
             </details>
 
             <a href="#contact">Contact</a>
-
             <a href="resumeJason.pdf"
                target="_blank"
                rel="noopener noreferrer">
@@ -49,7 +46,6 @@
     </nav>
 
     <main>
-
         <!-- Home -->
         <section id="top">
             <h1 id="title"></h1>
@@ -129,20 +125,19 @@
             <h2>Experience</h2>
 
             <p class="experience-intro">
-                A little bit of what I've worked on outside the classroom.
+                A little bit of what I've worked on outside the classroom
             </p>
 
             <!-- UVA Research -->
             <article class="experience-card" id="uva-research">
                 <div class="experience-label">
-                    RESEARCH / LARGE LANGUAGE MODELS
+                    RESEARCH | LARGE LANGUAGE MODELS
                     <span class="status-tag">IN PROGRESS</span>
                 </div>
 
                 <div class="experience-heading">
                     <div>
                         <h3>Undergraduate Research Assistant</h3>
-
                         <p class="experience-organization">
                             University of Virginia
                         </p>
@@ -184,13 +179,12 @@
             <!-- GMU Research -->
             <article class="experience-card" id="gmu-research">
                 <div class="experience-label">
-                    RESEARCH / DEEP LEARNING
+                    RESEARCH | DEEP LEARNING
                 </div>
 
                 <div class="experience-heading">
                     <div>
                         <h3>Deep Learning Research Intern</h3>
-
                         <p class="experience-organization">
                             George Mason University
                         </p>
@@ -238,7 +232,7 @@
             <h2>Projects</h2>
 
             <p class="projects-intro">
-                Some things I've been building.
+                Some things I've been building
             </p>
 
             <div class="projects-grid">
@@ -300,35 +294,32 @@
                     <h3>RockBlaster</h3>
 
                     <p>
-                        A fast-paced retro arcade space shooter built
-                        in Lua using PICO-8. Players control a
-                        spaceship, fire rainbow projectiles, and
-                        destroy randomly generated asteroids with
-                        different sizes and health values. The game
-                        includes collision detection, player health,
-                        scoring system, and randomized asteroid
-                        behavior.
+                        RockBlaster is a fast-paced, retro-inspired arcade shooter developed entirely in Lua using the PICO-8 fantasy console. Built around a custom real-time gameplay loop, the game features procedurally generated asteroid encounters, progressively challenging levels, dynamic projectile systems, and collision detection.
+
+Designed and implemented an arcade combat system featuring multiple weapon mechanics, including rapid-fire projectiles and a charge-based plasma beam, alongside enemy health tracking, visual effects, and custom sound effects. Integrated a level progression system with scaling enemy spawn rates and movement speeds, player health management, and interactive game-state transitions for a polished, replayable experience.
                     </p>
 
-                    <div class="project-demo">
-                        <video
-                            controls
-                            preload="metadata"
-                            playsinline
-                            class="pixel-video"
-                        >
-                            <source
-                                src="videos/pico8-demo.mp4"
-                                type="video/mp4"
-                            >
-                            Your browser does not support video playback.
-                        </video>
+                    <div class="project-demo pico8-demo">
+                        <iframe
+                            src="games/jasonrockblaster.html"
+                            title="Play RockBlaster in your browser"
+                            class="pico8-game"
+                            loading="lazy"
+                            allow="autoplay; fullscreen; gamepad"
+                            allowfullscreen
+                        ></iframe>
                     </div>
+
+                    <p class="game-instructions">
+                        Click the game to start. Use arrow keys to move,
+                        Z shoot, X to perform a SUPER move, and X to continue or restart when level is finished.
+                    </p>
 
                     <div class="project-tech">
                         <span>Lua</span>
                         <span>PICO-8</span>
                         <span>Collision Detection</span>
+                        <span>State Machine</span>
                     </div>
 
                     <div class="project-links">
@@ -338,6 +329,14 @@
                             rel="noopener noreferrer"
                         >
                             GitHub ↗
+                        </a>
+
+                        <a
+                            href="games/jasonrockblaster.html"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Play Fullscreen ↗
                         </a>
                     </div>
                 </article>
@@ -376,7 +375,6 @@
                         </a>
                     </div>
                 </article>
-
             </div>
         </section>
 
@@ -386,7 +384,6 @@
 
             <div class="contact-item">
                 <strong>Email:</strong>
-
                 <a href="mailto:jasonkshrrr@gmail.com">
                     jasonkshrrr@gmail.com
                 </a>
@@ -432,7 +429,6 @@
     <script>
         const dropdownMenus = document.querySelectorAll(".project-menu");
 
-        // Close dropdowns after selecting a link
         dropdownMenus.forEach(menu => {
             menu.querySelectorAll("a").forEach(link => {
                 link.addEventListener("click", () => {
@@ -441,7 +437,6 @@
             });
         });
 
-        // Close dropdowns when clicking outside
         document.addEventListener("click", event => {
             dropdownMenus.forEach(menu => {
                 if (!menu.contains(event.target)) {
@@ -450,7 +445,6 @@
             });
         });
 
-        // Typing animation
         function typeText(elementId, text, speed) {
             const element = document.getElementById(elementId);
             let index = 0;
