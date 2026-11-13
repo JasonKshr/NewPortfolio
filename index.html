@@ -48,7 +48,7 @@
     <main>
         <!-- Home -->
         <section id="top">
-            <h1 id="title"></h1>
+            <h1 id="title" aria-label="Hi, I'm Jason Kishore"></h1>
 
             <div class="photorow">
                 <div class="side-item">
@@ -345,24 +345,43 @@
                 <article class="project-card" id="jasonchat">
                     <div class="project-number">
                         03 | WEB DEVELOPMENT
-                        <span class="status-tag">IN PROGRESS</span>
                     </div>
 
                     <h3>JasonChat</h3>
 
                     <p>
-                        A real-time messaging web application in
-                        development using Django. Building the
-                        foundation for user accounts and conversations,
-                        with private and group chats, WebSocket-based
-                        messaging, and persistent chat history planned.
+                        JasonChat is a real-time messaging web application
+                        built with Django and WebSockets. It features
+                        account registration and sign-in, direct messaging,
+                        group conversations, user search, and persistent
+                        chat history. Its clean, responsive interface
+                        makes it easy to start conversations and stay
+                        connected.
                     </p>
+
+                    <div class="project-demo jasonchat-demo">
+                        <video
+                            controls
+                            preload="metadata"
+                            playsinline
+                            poster="images/jasonchat-preview.jpg"
+                            aria-label="JasonChat application demonstration"
+                        >
+                            <source
+                                src="videos/jasonchat-demo.mp4"
+                                type="video/mp4"
+                            >
+                            Your browser does not support video playback.
+                        </video>
+                    </div>
 
                     <div class="project-tech">
                         <span>Python</span>
                         <span>Django</span>
+                        <span>Django Channels</span>
+                        <span>WebSockets</span>
                         <span>SQLite</span>
-                        <span>WebSockets (planned)</span>
+                        <span>HTML / CSS / JavaScript</span>
                     </div>
 
                     <div class="project-links">
@@ -430,6 +449,14 @@
         const dropdownMenus = document.querySelectorAll(".project-menu");
 
         dropdownMenus.forEach(menu => {
+            menu.addEventListener("toggle", () => {
+                if (menu.open) {
+                    dropdownMenus.forEach(other => {
+                        if (other !== menu) other.open = false;
+                    });
+                }
+            });
+
             menu.querySelectorAll("a").forEach(link => {
                 link.addEventListener("click", () => {
                     menu.open = false;
@@ -447,6 +474,12 @@
 
         function typeText(elementId, text, speed) {
             const element = document.getElementById(elementId);
+
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                element.textContent = text;
+                return;
+            }
+
             let index = 0;
 
             function type() {

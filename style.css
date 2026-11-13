@@ -5,6 +5,7 @@
     --accent-dark: rgb(164, 83, 32);
     --text: #111;
     --card: #fff8ed;
+    --content-width: 1060px;
 }
 
 * {
@@ -36,73 +37,59 @@ nav {
     z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 20px 40px;
+    gap: 12px;
+    padding: 14px clamp(16px, 3vw, 40px);
     background: rgba(245, 120, 43, 0.92);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
 }
 
-nav a {
+nav a,
+nav .project-menu summary {
     display: inline-block;
-    padding: 5px 12px;
+    padding: 8px 11px;
     border: 2px solid black;
     border-radius: 10px;
     color: black;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
     line-height: 1.2;
     text-decoration: none;
-    box-shadow: 5px 5px 10px var(--accent);
+    box-shadow: 3px 3px 0 var(--accent-dark);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-nav a:hover {
-    transform: translateY(-3px);
-    box-shadow: 6px 6px 0 var(--accent-dark);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    margin-left: auto;
-}
-
-/* Projects dropdown */
-
-.project-menu {
-    position: relative;
-}
-
-.project-menu summary {
-    display: inline-block;
-    list-style: none;
-    cursor: pointer;
-    padding: 5px 12px;
-    border: 2px solid black;
-    border-radius: 10px;
-    color: black;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.2;
-    box-shadow: 5px 5px 10px var(--accent);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.project-menu summary::-webkit-details-marker {
-    display: none;
-}
-
+nav a:hover,
 .project-menu summary:hover,
 .project-menu[open] summary {
     transform: translateY(-3px);
     box-shadow: 6px 6px 0 var(--accent-dark);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 1.5vw, 18px);
+    margin-left: auto;
+}
+
+/* Dropdown menus */
+
+.project-menu {
+    position: relative;
+}
+
+.project-menu summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.project-menu summary::-webkit-details-marker {
+    display: none;
+}
+
 .project-menu summary:focus-visible,
-.project-dropdown a:focus-visible {
+.project-dropdown a:focus-visible,
+nav a:focus-visible {
     outline: 3px solid black;
     outline-offset: 3px;
 }
@@ -115,7 +102,7 @@ nav a:hover {
     position: absolute;
     top: calc(100% + 12px);
     right: 0;
-    width: 205px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -125,6 +112,10 @@ nav a:hover {
     background: var(--card);
     box-shadow: 6px 6px 0 var(--accent-dark);
     z-index: 1100;
+}
+
+.project-menu:not([open]) .project-dropdown {
+    display: none;
 }
 
 .project-dropdown a {
@@ -142,23 +133,27 @@ nav a:hover {
     transform: none;
 }
 
-.project-card {
-    scroll-margin-top: 120px;
-}
-
 /* Shared sections */
 
 section {
+    width: 100%;
+    max-width: 1500px;
+    margin-inline: auto;
     padding: 80px 15%;
 }
 
 section h2 {
-    font-size: 48px;
+    font-size: clamp(2rem, 3.8vw, 2.75rem);
     margin: 0 0 30px;
 }
 
 section p {
     line-height: 1.6;
+}
+
+.project-card,
+.experience-card {
+    scroll-margin-top: 120px;
 }
 
 /* Home */
@@ -227,44 +222,10 @@ section p {
     transform: scale(1.6);
 }
 
-/* Spotify */
-
-#spotify-card {
-    width: 220px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 700;
-}
-
-#spotify-card p {
-    font-size: 18px;
-    margin: 8px 0;
-}
-
-#spotify-song {
-    font-size: 22px;
-    margin: 10px 0 5px;
-    overflow-wrap: anywhere;
-}
-
-#spotify-artist {
-    font-size: 17px;
-    margin: 5px 0 10px;
-}
-
-#spotify-album {
-    display: none;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 10px auto 0;
-}
-
 /* About */
 
 #aboutme {
-    font-size: 25px;
+    font-size: clamp(18px, 2vw, 22px);
 }
 
 #aboutme p {
@@ -298,7 +259,7 @@ section p {
 /* Experience */
 
 #experience {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .experience-intro {
@@ -307,6 +268,7 @@ section p {
 }
 
 .experience-card {
+    max-width: var(--content-width);
     background: var(--card);
     border: 3px solid black;
     border-radius: 18px;
@@ -318,6 +280,10 @@ section p {
 .experience-card:hover {
     transform: translateY(-6px);
     box-shadow: 12px 12px 0 var(--accent);
+}
+
+.experience-card + .experience-card {
+    margin-top: 45px;
 }
 
 .experience-label {
@@ -368,8 +334,8 @@ section p {
 
 .experience-description {
     font-size: 17px;
-    font-weight: 700;
-    line-height: 1.7;
+    font-weight: 600;
+    line-height: 1.75;
     margin-bottom: 18px;
 }
 
@@ -392,7 +358,7 @@ section p {
 /* Projects */
 
 #projects {
-    font-size: 25px;
+    font-size: 20px;
     min-height: 350px;
 }
 
@@ -409,6 +375,7 @@ section p {
 
 .project-card {
     width: 100%;
+    max-width: var(--content-width);
     background: var(--card);
     border: 3px solid black;
     border-radius: 18px;
@@ -430,15 +397,15 @@ section p {
 }
 
 .project-card h3 {
-    font-size: 34px;
+    font-size: clamp(27px, 3vw, 34px);
     font-weight: 900;
     margin: 15px 0;
 }
 
 .project-card p {
     font-size: 17px;
-    font-weight: 700;
-    line-height: 1.7;
+    font-weight: 600;
+    line-height: 1.75;
 }
 
 /* Project demos */
@@ -456,6 +423,8 @@ section p {
     display: block;
     width: 100%;
     height: auto;
+    max-height: 620px;
+    object-fit: contain;
     background: black;
 }
 
@@ -489,6 +458,18 @@ section p {
     text-align: center;
     font-size: 14px !important;
     margin: 10px 0 20px;
+}
+
+/* JasonChat demo */
+
+.jasonchat-demo {
+    background: #f7f9f6;
+}
+
+.jasonchat-demo video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #f7f9f6;
 }
 
 /* Technology tags */
@@ -542,8 +523,8 @@ section p {
 /* Contact */
 
 #contact {
-    font-size: 25px;
-    padding-bottom: 250px;
+    font-size: 20px;
+    padding-bottom: 110px;
 }
 
 .contact-item {
@@ -578,21 +559,6 @@ section p {
     white-space: nowrap;
 }
 
-.experience-card + .experience-card {
-    margin-top: 45px;
-}
-
-.experience-card {
-    scroll-margin-top: 120px;
-}
-
-/* Match navigation button sizes */
-
-nav .project-menu summary {
-    font-size: 18px;
-    padding: 5px 10px;
-}
-
 /* Tablet */
 
 @media (max-width: 1100px) {
@@ -606,11 +572,6 @@ nav .project-menu summary {
 
     .nav-right {
         gap: 15px;
-    }
-
-    nav a,
-    .project-menu summary {
-        font-size: 20px;
     }
 
     .photorow {
@@ -630,12 +591,37 @@ nav .project-menu summary {
         width: 120px;
     }
 
-    #spotify-card {
-        width: 160px;
-    }
-
     .project-demo .pixel-video {
         width: 65%;
+    }
+}
+
+@media (max-width: 900px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-right {
+        margin-left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section {
+        padding: 65px 7%;
+    }
+
+    .photorow {
+        gap: 12px;
+    }
+
+    .side-item {
+        width: 115px;
+    }
+
+    .uva-logo {
+        width: 110px;
     }
 }
 
@@ -649,35 +635,31 @@ nav .project-menu summary {
     nav {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
-        padding: 15px;
+        gap: 9px;
+        padding: 12px 10px;
     }
 
     nav a,
-    .project-menu summary {
-        font-size: 15px;
-        padding: 6px 9px;
-    }
-
     nav .project-menu summary {
-        font-size: 14px;
-        padding: 5px 8px;
+        font-size: 13px;
+        padding: 7px 9px;
     }
 
     .project-dropdown {
         right: 50%;
         transform: translateX(50%);
+        z-index: 1200;
     }
 
     .nav-right {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 7px;
         margin-left: 0;
     }
 
     section {
-        padding: 55px 7%;
+        padding: 50px 6%;
     }
 
     section h2 {
@@ -686,7 +668,7 @@ nav .project-menu summary {
 
     #top {
         min-height: auto;
-        padding-top: 55px;
+        padding-top: 45px;
     }
 
     #title {
@@ -722,7 +704,7 @@ nav .project-menu summary {
     #experience,
     #projects,
     #contact {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .activity-row {
@@ -738,7 +720,7 @@ nav .project-menu summary {
 
     .experience-card,
     .project-card {
-        padding: 22px;
+        padding: 20px;
     }
 
     .experience-heading {
@@ -747,15 +729,19 @@ nav .project-menu summary {
     }
 
     .experience-heading h3 {
-        font-size: 26px;
+        font-size: 25px;
     }
 
     .experience-date {
         white-space: normal;
     }
 
-    .contact-item {
-        flex-wrap: wrap;
+    .project-card h3 {
+        font-size: 27px;
+    }
+
+    .project-demo {
+        box-shadow: 3px 3px 0 var(--accent);
     }
 
     .project-demo .pixel-video {
@@ -767,9 +753,21 @@ nav .project-menu summary {
         padding: 4px;
     }
 
+    .jasonchat-demo video {
+        aspect-ratio: 16 / 9;
+    }
+
+    .contact-item {
+        flex-wrap: wrap;
+    }
+
     .status-tag {
         margin-left: 6px;
         font-size: 10px;
+    }
+
+    #contact {
+        padding-bottom: 70px;
     }
 }
 
